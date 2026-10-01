@@ -1,0 +1,27 @@
+# --- Secrets & local config (NEVER commit) ---
+.env
+
+# --- Local database (SQLite + WAL sidecars) ---
+financial_news.db
+financial_news.db-shm
+financial_news.db-wal
+*.db-shm
+*.db-wal
+
+# --- Generated data / outputs / logs ---
+data/
+reports/
+logs/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+*.egg-info/
+
+# --- OS / IDE ---
+.DS_Store
+.idea/
+.vscode/

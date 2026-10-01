@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- macOS LaunchAgent template for the always-on worker.
+     1. Replace /ABSOLUTE/PATH/TO/financialNewsProject with your repo path.
+     2. Save as ~/Library/LaunchAgents/<Label>.plist
+     3. launchctl load -w ~/Library/LaunchAgents/<Label>.plist
+     Also edit the paths inside scripts/run_market_session.sh to match. -->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.example.financialnews.marketsession</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/ABSOLUTE/PATH/TO/financialNewsProject/scripts/run_market_session.sh</string>
+    </array>
+
+    <!-- Fire at 07:00 Mon-Fri (runs at next wake if the Mac is asleep then). -->
+    <key>StartCalendarInterval</key>
+    <array>
+        <dict><key>Weekday</key><integer>1</integer><key>Hour</key><integer>7</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Weekday</key><integer>2</integer><key>Hour</key><integer>7</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Weekday</key><integer>3</integer><key>Hour</key><integer>7</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Weekday</key><integer>4</integer><key>Hour</key><integer>7</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Weekday</key><integer>5</integer><key>Hour</key><integer>7</integer><key>Minute</key><integer>0</integer></dict>
+    </array>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string>/ABSOLUTE/PATH/TO/financialNewsProject/logs/launchd.out.log</string>
+    <key>StandardErrorPath</key>
+    <string>/ABSOLUTE/PATH/TO/financialNewsProject/logs/launchd.err.log</string>
+</dict>
+</plist>
